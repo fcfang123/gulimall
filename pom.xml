@@ -17,13 +17,10 @@
         <module>gulimall-ware</module>
         <module>gulimall-coupon</module>
         <module>gulimall-member</module>
+        <module>renren-fast</module>
+        <module>renren-generator</module>
+        <module>gulimall-common</module>
     </modules>
-    <!-- 统一管理jar包版本 -->
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-    </properties>
 
     <dependencyManagement>
         <dependencies>
@@ -53,7 +50,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
     <build>
         <plugins>
             <plugin>
@@ -63,6 +59,7 @@
                     <fork>true</fork>
                     <addResources>true</addResources>
                 </configuration>
+                <version>2.3.2.RELEASE</version>
             </plugin>
         </plugins>
     </build>
