@@ -44,7 +44,7 @@ public class AttrAttrgroupRelationController {
 
 
     /**
-     * 信息
+     * 信息测试
      */
     @RequestMapping("/info/{id}")
     //@RequiresPermissions("product:attrattrgrouprelation:info")
