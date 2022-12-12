@@ -32,7 +32,7 @@ public class AttrAttrgroupRelationController {
     private AttrAttrgroupRelationService attrAttrgroupRelationService;
 
     /**
-     * 列表测试
+     * 列表测试1
      */
     @RequestMapping("/list")
     //@RequiresPermissions("product:attrattrgrouprelation:list")
