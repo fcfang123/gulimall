@@ -1,22 +1,14 @@
 package com.xmh.gulimall.product;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
+@MapperScan("com.xmh.gulimall.product.dao")
 public class GulimallProductApplication {
-
-    /**
-     * @param args
-     * @Cacheable 触发将数据保存到缓存中的操作
-     * @CacheEvict 触发将数据从缓存删除的操作
-     * @CachePut
-     * @Caching 组合以上多个操作
-     * @CacheConfig
-     */
     public static void main(String[] args) {
         SpringApplication.run(GulimallProductApplication.class, args);
     }
-
 }
