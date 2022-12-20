@@ -1,4 +1,4 @@
-package com.xmh.gulimall.coupon;
+package com.xmh.gulimall.ware;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -7,10 +7,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 
 @SpringBootApplication
-@MapperScan("com.xmh.gulimall.coupon.dao")
+@MapperScan("com.xmh.gulimall.ware.dao")
 @EnableDiscoveryClient
-public class GulimallCouponApplication {
+public class GulimallWareApplication {
     public static void main(String[] args) {
-        SpringApplication.run(GulimallCouponApplication.class, args);
+        SpringApplication.run(GulimallWareApplication.class, args);
     }
 }

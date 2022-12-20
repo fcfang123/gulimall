@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
+import com.xmh.gulimall.member.feign.CouponFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,7 +16,6 @@ import com.xmh.gulimall.member.entity.UmsMemberEntity;
 import com.xmh.gulimall.member.service.UmsMemberService;
 import com.xmh.common.utils.PageUtils;
 import com.xmh.common.utils.R;
-
 
 
 /**
@@ -30,13 +30,23 @@ import com.xmh.common.utils.R;
 public class UmsMemberController {
     @Autowired
     private UmsMemberService umsMemberService;
+    @Autowired
+    private CouponFeignService couponFeignService; //注入刚才的CouponFeignService接口
+
+    @RequestMapping("/coupons")
+    public R coupons() {
+        UmsMemberEntity memberEntity = new UmsMemberEntity();
+        memberEntity.setNickname("会员昵称张三");
+        R membercoupons = couponFeignService.membercoupons();
+        return R.ok().put("member", memberEntity).put("coupons", membercoupons.get("coupons"));
+    }
 
     /**
      * 列表
      */
     @RequestMapping("/list")
     //@RequiresPermissions("member:umsmember:list")
-    public R list(@RequestParam Map<String, Object> params){
+    public R list(@RequestParam Map<String, Object> params) {
         PageUtils page = umsMemberService.queryPage(params);
 
         return R.ok().put("page", page);
@@ -48,8 +58,8 @@ public class UmsMemberController {
      */
     @RequestMapping("/info/{id}")
     //@RequiresPermissions("member:umsmember:info")
-    public R info(@PathVariable("id") Long id){
-		UmsMemberEntity umsMember = umsMemberService.getById(id);
+    public R info(@PathVariable("id") Long id) {
+        UmsMemberEntity umsMember = umsMemberService.getById(id);
 
         return R.ok().put("umsMember", umsMember);
     }
@@ -59,8 +69,8 @@ public class UmsMemberController {
      */
     @RequestMapping("/save")
     //@RequiresPermissions("member:umsmember:save")
-    public R save(@RequestBody UmsMemberEntity umsMember){
-		umsMemberService.save(umsMember);
+    public R save(@RequestBody UmsMemberEntity umsMember) {
+        umsMemberService.save(umsMember);
 
         return R.ok();
     }
@@ -70,8 +80,8 @@ public class UmsMemberController {
      */
     @RequestMapping("/update")
     //@RequiresPermissions("member:umsmember:update")
-    public R update(@RequestBody UmsMemberEntity umsMember){
-		umsMemberService.updateById(umsMember);
+    public R update(@RequestBody UmsMemberEntity umsMember) {
+        umsMemberService.updateById(umsMember);
 
         return R.ok();
     }
@@ -81,8 +91,8 @@ public class UmsMemberController {
      */
     @RequestMapping("/delete")
     //@RequiresPermissions("member:umsmember:delete")
-    public R delete(@RequestBody Long[] ids){
-		umsMemberService.removeByIds(Arrays.asList(ids));
+    public R delete(@RequestBody Long[] ids) {
+        umsMemberService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }
