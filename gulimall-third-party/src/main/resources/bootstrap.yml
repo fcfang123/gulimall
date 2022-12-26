@@ -1,7 +1,7 @@
 # 改名字，对应nacos里的配置文件名
 spring:
   application:
-    name: gulimall-gateway
+    name: gulimall-third-party
   cloud:
     nacos:
       config:

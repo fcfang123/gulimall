@@ -5,7 +5,7 @@ package com.xmh.common.exception;
  * @author yaoxinjia
  */
 public enum BizCodeEnum {
-    UNKNOWN_EXCEPTION(10000,"系统未知错误"),
+    UNKNOW_EXCEPTION(10000,"系统未知错误"),
     VALID_EXCEPTION(10001,"参数校验异常"),
     SMS_CODE_EXCEPTION(10002,"验证码获取频率太高，请稍后再试"),
     TO_MANY_REQUEST(10003,"请求流量过大，请稍后再试"),

@@ -32,10 +32,10 @@ public class AttrAttrgroupRelationController {
     private AttrAttrgroupRelationService attrAttrgroupRelationService;
 
     /**
-     * 列表测试1
+     * 列表
      */
     @RequestMapping("/list")
-    //@RequiresPermissions("product:attrattrgrouprelation:list")
+    ////@RequiresPermissions
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = attrAttrgroupRelationService.queryPage(params);
 
@@ -44,7 +44,7 @@ public class AttrAttrgroupRelationController {
 
 
     /**
-     * 信息测试1
+     * 信息
      */
     @RequestMapping("/info/{id}")
     //@RequiresPermissions("product:attrattrgrouprelation:info")

@@ -1,7 +1,7 @@
 package com.xmh.common.valid;
 /**
  *
- * @author yaoxinjia
+ * @author fcfang
  */
 public interface AddGroup {
 }
